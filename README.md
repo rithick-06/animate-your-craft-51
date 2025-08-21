@@ -66,18 +66,12 @@ npm run dev
    npm run build
    ```
 
-2. **Deploy to GitHub Pages**:
-   ```bash
-   npm run deploy
-   ```
-
-3. **Enable GitHub Pages**:
+2. **Enable GitHub Pages**:
    - Go to your repository on GitHub
    - Click on "Settings" tab
    - Scroll down to "Pages" section
-   - Under "Source", select "Deploy from a branch"
-   - Choose "gh-pages" branch and "/ (root)" folder
-   - Click "Save"
+   - Under "Source", select "GitHub Actions"
+   - The workflow will automatically deploy when you push to main branch
 
 ## 🌐 Access Your Deployed Site
 
@@ -112,7 +106,6 @@ src/
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
-- `npm run deploy` - Deploy to GitHub Pages
 
 ## 📱 Browser Support
 
