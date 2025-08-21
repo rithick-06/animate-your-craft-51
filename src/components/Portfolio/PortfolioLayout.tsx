@@ -55,7 +55,7 @@ const PortfolioLayout = ({ children, currentSection, onSectionChange }: Portfoli
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: [0.25, 0.46, 0.45, 0.94] as any
       }
     },
     exit: { 
@@ -64,7 +64,7 @@ const PortfolioLayout = ({ children, currentSection, onSectionChange }: Portfoli
       scale: 1.02,
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: [0.25, 0.46, 0.45, 0.94] as any
       }
     }
   };
@@ -78,7 +78,7 @@ const PortfolioLayout = ({ children, currentSection, onSectionChange }: Portfoli
       x: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as any,
         stiffness: 100,
         damping: 20
       }

@@ -72,8 +72,8 @@ const ThreeDIcon = ({ type }: ThreeDIconProps) => {
         scale: [1, 1.1, 1]
       }}
       transition={{
-        rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-        scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+        rotate: { duration: 20, repeat: Infinity, ease: "linear" as any },
+        scale: { duration: 3, repeat: Infinity, ease: "easeInOut" as any }
       }}
     >
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>

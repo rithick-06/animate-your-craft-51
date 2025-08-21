@@ -4,6 +4,7 @@ import HeroSection from '@/components/Portfolio/HeroSection';
 import AboutSection from '@/components/Portfolio/AboutSection';
 import ProjectsSection from '@/components/Portfolio/ProjectsSection';
 import SkillsSection from '@/components/Portfolio/SkillsSection';
+import ArticlesSection from '@/components/Portfolio/ArticlesSection';
 import CodingProfilesSection from '@/components/Portfolio/CodingProfilesSection';
 import ContactSection from '@/components/Portfolio/ContactSection';
 

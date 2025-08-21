@@ -1,24 +1,24 @@
-import { useCallback } from "react";
-import Particles from "react-particles";
-import { loadSlim } from "tsparticles";
-import type { Container, Engine } from "tsparticles";
+import { useCallback } from 'react';
+import Particles from 'react-particles';
+import { loadSlim } from '@tsparticles/slim';
+import type { Container, Engine } from 'tsparticles-engine';
 
 interface ParticleBackgroundProps {
-  variant?: 'hero' | 'projects' | 'skills' | 'contact';
+  variant?: 'hero' | 'about' | 'projects' | 'skills' | 'contact';
 }
 
 const ParticleBackground = ({ variant = 'hero' }: ParticleBackgroundProps) => {
-  const particlesInit = useCallback(async (engine: Engine) => {
+  const particlesInit = useCallback(async (engine: any) => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
+  const particlesLoaded = useCallback(async (container?: any) => {
     // Particles loaded callback
   }, []);
 
   const getParticleConfig = () => {
     const baseConfig = {
-      fpsLimit: 120,
+      fpsLimit: 60,
       fullScreen: false,
       interactivity: {
         events: {
@@ -44,23 +44,23 @@ const ParticleBackground = ({ variant = 'hero' }: ParticleBackgroundProps) => {
       },
       particles: {
         color: {
-          value: ["#3B82F6", "#8B5CF6", "#06B6D4"],
+          value: "#8B5CF6",
         },
         links: {
-          color: "#3B82F6",
+          color: "#8B5CF6",
           distance: 150,
           enable: true,
           opacity: 0.3,
           width: 1,
         },
         move: {
-          direction: "none",
+          direction: "none" as any,
           enable: true,
           outModes: {
-            default: "bounce",
+            default: "bounce" as any,
           },
           random: false,
-          speed: 1.5,
+          speed: 1,
           straight: false,
         },
         number: {
@@ -71,13 +71,13 @@ const ParticleBackground = ({ variant = 'hero' }: ParticleBackgroundProps) => {
           value: 80,
         },
         opacity: {
-          value: 0.5,
+          value: 0.3,
         },
         shape: {
-          type: "circle",
+          type: "circle" as any,
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 1, max: 3 },
         },
       },
       detectRetina: true,
@@ -94,103 +94,100 @@ const ParticleBackground = ({ variant = 'hero' }: ParticleBackgroundProps) => {
               ...baseConfig.particles.number,
               value: 100,
             },
-            move: {
-              ...baseConfig.particles.move,
-              speed: 2,
+            color: {
+              value: "#3B82F6",
+            },
+            links: {
+              ...baseConfig.particles.links,
+              color: "#3B82F6",
             },
           },
         };
-      
+      case 'about':
+        return {
+          ...baseConfig,
+          particles: {
+            ...baseConfig.particles,
+            number: {
+              ...baseConfig.particles.number,
+              value: 60,
+            },
+            color: {
+              value: "#10B981",
+            },
+            links: {
+              ...baseConfig.particles.links,
+              color: "#10B981",
+            },
+          },
+        };
       case 'projects':
         return {
           ...baseConfig,
           particles: {
             ...baseConfig.particles,
+            number: {
+              ...baseConfig.particles.number,
+              value: 70,
+            },
             color: {
-              value: ["#8B5CF6", "#EC4899"],
+              value: "#F59E0B",
             },
             links: {
               ...baseConfig.particles.links,
-              color: "#8B5CF6",
-            },
-            number: {
-              ...baseConfig.particles.number,
-              value: 60,
-            },
-            move: {
-              ...baseConfig.particles.move,
-              speed: 1,
+              color: "#F59E0B",
             },
           },
         };
-      
       case 'skills':
         return {
           ...baseConfig,
           particles: {
             ...baseConfig.particles,
+            number: {
+              ...baseConfig.particles.number,
+              value: 90,
+            },
             color: {
-              value: ["#06B6D4", "#10B981"],
+              value: "#EF4444",
             },
             links: {
               ...baseConfig.particles.links,
-              color: "#06B6D4",
-              enable: false,
-            },
-            number: {
-              ...baseConfig.particles.number,
-              value: 40,
-            },
-            shape: {
-              type: ["circle", "triangle"],
-            },
-            move: {
-              ...baseConfig.particles.move,
-              speed: 3,
-              direction: "top",
+              color: "#EF4444",
             },
           },
         };
-      
       case 'contact':
         return {
           ...baseConfig,
           particles: {
             ...baseConfig.particles,
-            color: {
-              value: ["#F59E0B", "#EF4444"],
-            },
-            links: {
-              ...baseConfig.particles.links,
-              color: "#F59E0B",
-              opacity: 0.2,
-            },
             number: {
               ...baseConfig.particles.number,
               value: 50,
             },
-            move: {
-              ...baseConfig.particles.move,
-              speed: 0.8,
+            color: {
+              value: "#8B5CF6",
+            },
+            links: {
+              ...baseConfig.particles.links,
+              color: "#8B5CF6",
             },
           },
         };
-      
       default:
         return baseConfig;
     }
   };
 
   return (
-    <div className="absolute inset-0 z-0">
-      <Particles
-        id={`particles-${variant}`}
-        init={particlesInit}
-        loaded={particlesLoaded}
-        options={getParticleConfig()}
-        className="w-full h-full"
-      />
-    </div>
+    <Particles
+      id={`particles-${variant}`}
+      init={particlesInit}
+      loaded={particlesLoaded}
+      options={getParticleConfig() as any}
+      className="absolute inset-0 z-0"
+    />
   );
 };
 

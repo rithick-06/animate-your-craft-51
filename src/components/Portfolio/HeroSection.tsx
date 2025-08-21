@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Download, Mail, Github, Linkedin } from 'lucide-react';
+import { ChevronDown, Download, Mail, Github, Linkedin, Briefcase } from 'lucide-react';
 import ParticleBackground from './ParticleBackground';
 import ThreeDIcon from './ThreeDIcon';
 
@@ -17,7 +17,7 @@ const HeroSection = ({ onSectionChange }: HeroSectionProps) => {
       transition: {
         delay: i * 0.2,
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: [0.25, 0.46, 0.45, 0.94] as any
       }
     })
   };
@@ -30,7 +30,7 @@ const HeroSection = ({ onSectionChange }: HeroSectionProps) => {
       transition: {
         delay: 1.2,
         duration: 0.6,
-        ease: "backOut"
+        ease: "backOut" as any
       }
     }
   };

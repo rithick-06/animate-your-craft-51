@@ -96,7 +96,7 @@ const SkillsSection = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
+        ease: "easeOut" as any
       }
     }
   };
@@ -107,7 +107,7 @@ const SkillsSection = () => {
       width: `${level}%`,
       transition: {
         duration: 1.5,
-        ease: "easeOut",
+        ease: "easeOut" as any,
         delay: 0.5
       }
     })
@@ -192,7 +192,7 @@ const SkillsSection = () => {
                           viewport={{ once: true }}
                           transition={{
                             duration: 1.5,
-                            ease: "easeOut",
+                            ease: "easeOut" as any,
                             delay: categoryIndex * 0.2 + skillIndex * 0.1
                           }}
                         />
